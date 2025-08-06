@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        form {
+            display: grid;
+            width: 500px;
+            gap: 5px;
+
+            button {
+                width: 80px;
+                margin-left: auto;
+                cursor: pointer;
+            }
+        }
+
+        iframe {
+            margin-top: 20px;
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="./index.html">Главная</a>
+        <a href="./contacts.html">Контакты</a>
+    </div>
+    <h2 class="contacts-h2">Contact Us</h2>
+    <p>8123456789</p>
+    <img src="./IMG/img1.jpg" alt="Красивая картинка">
+    <h4 class="contacts-h4">Address</h4>
+    <p>Lenina</p>
+    <h4 class="contacts-h4">Phone</h4>
+    <ul>
+        <li>+7 (123) 456 78-90</li>
+        <li>+7 (987) 654 32-10</li>
+    </ul>
+    <h4 class="contacts-h4">Online Service</h4>
+    <ul>
+        <li><a href="https://github.com/eNgeLzzRus" target="_blank">GitHub</a></li>
+        <li><a href="https://mail.ru/" target="_blank">Mail</a></li>
+        <li>г. Кемерово, Ленина 1</li>
+        <li>+7 (123) 456 78-90</li>
+    </ul>
+    <h4 class="contacts-h4">Send us message</h4>
+    <form>
+        <label for="full-name">Full Name</label> 
+        <input class="for-text" type="text" id="full-name" placeholder="Your Name"> 
+        <label for="email-address">Email</label> 
+        <input class="for-text" type="email" id="email-address" placeholder="Your Email">
+        <label for="message-text">Message</label>
+        <textarea class="for-text" name="message" placeholder="Your Message" id="message-text" cols="50" rows="10"></textarea>
+        <button class="submit-button" value="Submit">Submit</button>
+    </form>
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aca02bef87bd95ad87df65ea55bbbc69b25cb1889416cf04b3ce1a4f8ea400003&amp;source=constructor" width="358" height="240" frameborder="0"></iframe>
+    <footer>
+        <h3 class="contacts-h3">Третий маленький заголовок</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, nemo?</p>
+        <hr>
+        <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>+7 (983) 254 39-59</li>
+            <li>lakman0_0@mail.ru</li>
+        </ul>
+        <hr>
+        <p style="text-align: center;">&copy;Все права защищены</p>
+    </footer>
+
+</body>
+</html>

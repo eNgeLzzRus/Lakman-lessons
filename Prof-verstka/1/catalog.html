@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link rel="stylesheet" href="./index.css">
+    <title>Catalog</title>
+    <link rel="stylesheet" href="./catalog.css ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -68,49 +68,123 @@
     </nav>
     <header>
         <div class="container">
-            <img src="./IMG/header-man.png" alt="Man">
-            <div class="the__brand">
-                <h2>THE BRAND</h2>
-                <h4>OF LUXERIOUS <span>FASHION</span></h4>
-            </div>
+            <h2>NEW ARRIVALS</h2>
+            <p>
+                <a href="./index.html">HOME</a> / 
+                <a href="./catalog.html">MEN</a> / 
+                <a href="./catalog.html">NEW ARRIVALS</a>
+            </p>
         </div>
     </header>
     <main>
         <div class="container">
-            <!-- Карточки скидок -->
-            <div class="sales">
-                <div class="upper__part">
-                    <a href="./catalog.html" class="for-women">
-                        <div class="for-women poster">
-                                <h4>30% OFF</h4>
-                                <h2>FOR WOMEN</h2>
-                        </div>
-                    </a>
-                    <a href="./catalog.html" class="for-men">
-                        <div class="for-men poster">
-                            <h4>HOT DEAL</h4>
-                            <h2>FOR MEN</h2>
-                        </div>
-                    </a>
-                    <a href="./catalog.html" class="for-kids">
-                        <div class="for-kids poster">
-                            <h4>NEW ARRIVAALS</h4>
-                            <h2>FOR KIDS</h2>  
-                        </div>
-                    </a>    
-                </div>
-                <a href="./catalog.html" class="lower__part">
-                    <div class="lower__part poster">
-                            <h4>LUXIROUS & TRENDY</h4>
-                            <h2>ACCESORIES</h2>
-                    </div>
-                </a>
-            </div>
-            <!-- Каталог товаров -->
             <div class="catalog">
                 <div class="catalog__header">
-                    <h2>Fetured Items</h2>
-                    <p>Shop for items based on what we featured in this week</p>
+                    <div class="filter">
+                        <!-- Кнопка FILTER -->
+                        <input type="checkbox" id="filter-toggle" class="filter-toggle">
+                        <label for="filter-toggle" class="filter-label">
+                            <span>FILTER</span>
+                            <img src="./IMG/filter-icon.svg" alt="Filter" class="filter-img">
+                        </label>
+
+                        <!-- Выпадающее меню (появляется при клике) -->
+                        <div class="dropdown filter-dropdown">
+                            <label for="filter-toggle" class="filter-label">
+                                <span>FILTER</span>
+                                <img src="./IMG/pink-filter.svg" alt="Filter" class="filter-img">
+                            </label>
+                            <ul>
+                                <!-- CATEGORY -->
+                                <li class="filter-category">
+                                    <input type="checkbox" id="category-toggle" class="category-toggle" checked>
+                                    <label for="category-toggle" class="category-label">
+                                        <span class="category-text">CATEGORY</span>
+                                    </label>
+                                    <ul class="category-list">
+                                        <li><a href="">Accessories</a></li>
+                                        <li><a href="">Bags</a></li>
+                                        <li><a href="">Denim</a></li>
+                                        <li><a href="">Hoodies & Sweatshirts</a></li>
+                                        <li><a href="">Jackets & Coats</a></li>
+                                        <li><a href="">Polos</a></li>
+                                        <li><a href="">Shirts</a></li>
+                                        <li><a href="">Shoes</a></li>
+                                        <li><a href="">Sweaters & Knits</a></li>
+                                        <li><a href="">T-Shirts</a></li>
+                                        <li><a href="">Tanks</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- BRAND -->
+                                <li class="filter-brand">
+                                    <input type="checkbox" id="brand-toggle" class="category-toggle">
+                                    <label for="brand-toggle" class="category-label"><span class="category-text">BRAND</span></label>
+                                    <ul class="category-list">
+                                        <li><a href="">ADIDAS</a></li>
+                                        <li><a href="">NIKE</a></li>
+                                        <li><a href="">P&B</a></li>
+                                        <li><a href="">PRADA</a></li>
+                                        <li><a href="">BOSS</a></li>
+                                        <li><a href="">DIOR</a></li>
+                                        <li><a href="">GUCCI</a></li>
+                                        <li><a href="">HERMES</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- DESIGNER -->
+                                <li class="filter-designer">
+                                    <input type="checkbox" id="designer-toggle" class="category-toggle">
+                                    <label for="designer-toggle" class="category-label"><span class="category-text">DESIGNER</span></label>
+                                    <ul class="category-list">
+                                        <li><a href="">COCO CHANEL</a></li>
+                                        <li><a href="">CHRISTIAN DIOR</a></li>
+                                        <li><a href="">GIANNI VERSACE</a></li>
+                                        <li><a href="">GIORGIO ARMANI</a></li>
+                                        <li><a href="">GUCCIO GUCCI</a></li>
+                                        <li><a href="">MIUCCIA PRADA</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="trending">
+                            <h3>TRENDING NOW</h3>
+                            <img src="./IMG/more-down.svg" alt="Trending">
+                            <div class="dropdown">
+                                <label>
+                                    <input type="checkbox" value="yes"> Yes
+                                </label>
+                                <label>
+                                    <input type="checkbox" value="no"> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="size">
+                            <h3>SIZE</h3>
+                            <img src="./IMG/more-down.svg" alt="Trending">
+                            <div class="dropdown">
+                                <label>
+                                    <input type="checkbox" value="XS"> XS
+                                </label>
+                                <label>
+                                    <input type="checkbox" value="S"> S
+                                </label>
+                                <label>
+                                    <input type="checkbox" value="M"> M
+                                </label>
+                                <label>
+                                    <input type="checkbox" value="L"> L
+                                </label>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <h3>PRICE</h3>
+                            <img src="./IMG/more-down.svg" alt="Trending">
+                        </div>
+                    </div>
+                    <div class="unvisible"></div>
                 </div>
                 <div class="catalog__list">
                     <!-- 1 -->
@@ -131,7 +205,7 @@
                     <!-- 2 -->
                      <div class="catalog__list__item">
                         <div class="image-wrapper">
-                            <img src="./IMG/catalog-pic-2.jpg" alt="ELLERY X M'O CAPSULE">
+                            <img src="./IMG/catalog-man-2.jpg" alt="ELLERY X M'O CAPSULE">
                             <div class="add-to-cart">
                                 <img src="./IMG/add-cart.svg" alt="Add To Cart">
                                 <p>Add To Cart</p>
@@ -176,7 +250,7 @@
                     <!-- 5 -->
                     <div class="catalog__list__item">
                         <div class="image-wrapper">
-                            <img src="./IMG/catalog-pic-5.jpg" alt="ELLERY X M'O CAPSULE">
+                            <img src="./IMG/catalog-man-5.jpg" alt="ELLERY X M'O CAPSULE">
                             <div class="add-to-cart">
                                 <img src="./IMG/add-cart.svg" alt="Add To Cart">
                                 <p>Add To Cart</p>
@@ -191,7 +265,52 @@
                     <!-- 6 -->
                     <div class="catalog__list__item">
                         <div class="image-wrapper">
-                            <img src="./IMG/catalog-pic-6.jpg" alt="ELLERY X M'O CAPSULE">
+                            <img src="./IMG/catalog-man-6.jpg" alt="ELLERY X M'O CAPSULE">
+                            <div class="add-to-cart">
+                                <img src="./IMG/add-cart.svg" alt="Add To Cart">
+                                <p>Add To Cart</p>
+                            </div>
+                        </div>
+                        <div class="item__info">
+                            <h3>ELLERY X M'O CAPSULE</h3>
+                            <p>Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
+                            <h2>$52.00</h2>
+                        </div>
+                    </div>
+                    <!-- 7 -->
+                    <div class="catalog__list__item">
+                        <div class="image-wrapper">
+                            <img src="./IMG/catalog-man-7.jpg" alt="ELLERY X M'O CAPSULE">
+                            <div class="add-to-cart">
+                                <img src="./IMG/add-cart.svg" alt="Add To Cart">
+                                <p>Add To Cart</p>
+                            </div>
+                        </div>
+                        <div class="item__info">
+                            <h3>ELLERY X M'O CAPSULE</h3>
+                            <p>Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
+                            <h2>$52.00</h2>
+                        </div>
+                    </div>
+                    <!-- 8 -->
+                    <div class="catalog__list__item">
+                        <div class="image-wrapper">
+                            <img src="./IMG/catalog-man-8.jpg" alt="ELLERY X M'O CAPSULE">
+                            <div class="add-to-cart">
+                                <img src="./IMG/add-cart.svg" alt="Add To Cart">
+                                <p>Add To Cart</p>
+                            </div>
+                        </div>
+                        <div class="item__info">
+                            <h3>ELLERY X M'O CAPSULE</h3>
+                            <p>Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
+                            <h2>$52.00</h2>
+                        </div>
+                    </div>
+                    <!-- 9 -->
+                    <div class="catalog__list__item">
+                        <div class="image-wrapper">
+                            <img src="./IMG/catalog-man-9.jpg" alt="ELLERY X M'O CAPSULE">
                             <div class="add-to-cart">
                                 <img src="./IMG/add-cart.svg" alt="Add To Cart">
                                 <p>Add To Cart</p>
@@ -204,7 +323,16 @@
                         </div>
                     </div>
                 </div>
-                <button>Browse All Product</button>
+                <div class="pages">
+                    <a href="#"><img src="./IMG/go-back-icon.svg" alt="Go Back"></a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6.....20</a>
+                    <a href="#"><img src="./IMG/go-forward-icon.svg" alt="Go Forward"></a>
+                </div>
             </div>
         </div>
     </main>

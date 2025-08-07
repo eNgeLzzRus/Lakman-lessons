@@ -1,9 +1,11 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   font-family: Lato;
   line-height: 100%;
   letter-spacing: 0%;
+  font-weight: 400;
 }
 
 html, body {
@@ -125,87 +127,34 @@ html, body {
 }
 
 header {
-  background-color: #F1E4E6;
-  height: 764px;
   margin-top: 75px;
+  height: 148px;
+  background-color: #F8F3F4;
 }
 header .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  height: 100%;
+  align-items: center;
 }
-header .container .the__brand {
-  border-left: 12px solid #F16D7F;
-  padding-left: 16px;
-  position: relative;
-  right: 100px;
+header .container h2 {
+  font-size: 24px;
+  color: #F16D7F;
 }
-header .container .the__brand h2 {
-  font-size: 48px;
-  font-weight: 900;
+header .container p {
+  font-size: 14px;
 }
-header .container .the__brand h4 {
-  font-size: 32px;
+header .container p a {
+  text-decoration: none;
+  color: #636363;
+}
+header .container p a:last-of-type {
   font-weight: 700;
-}
-header .container .the__brand h4 span {
   color: #F16D7F;
 }
 
 main {
   margin-top: 100px;
-}
-main .container .sales {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-main .container .sales a {
-  text-decoration: none;
-}
-main .container .sales h4 {
-  font-size: 16px;
-  font-weight: 400;
-  color: #FFF;
-}
-main .container .sales h2 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #F16D7F;
-}
-main .container .sales .poster {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-}
-main .container .sales .upper__part {
-  display: flex;
-  justify-content: space-between;
-}
-main .container .sales .upper__part .for-women {
-  background: url(./IMG/for-women.jpg);
-  background-size: cover;
-  width: 360px;
-  height: 260px;
-}
-main .container .sales .upper__part .for-men {
-  background: url(./IMG/for-men.jpg);
-  background-size: cover;
-  width: 360px;
-  height: 260px;
-}
-main .container .sales .upper__part .for-kids {
-  background: url(./IMG/for-kids.jpg);
-  background-size: cover;
-  width: 360px;
-  height: 260px;
-}
-main .container .sales .lower__part {
-  background: url(./IMG/accesories.jpg);
-  height: 180px;
 }
 main .container .catalog {
   margin: 100px auto;
@@ -218,18 +167,188 @@ main .container .catalog {
 main .container .catalog__header {
   text-align: center;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-main .container .catalog__header h2 {
-  font-size: 30px;
-  font-weight: 400;
-  color: #222;
-}
-main .container .catalog__header p {
+  justify-content: space-between;
   font-size: 14px;
-  font-weight: 400;
-  color: #9F9F9F;
+  width: 100%;
+}
+main .container .catalog__header .filter-toggle {
+  display: none;
+}
+main .container .catalog__header .filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+main .container .catalog__header .filter .filter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #000;
+}
+main .container .catalog__header .filter .filter-label span {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+main .container .catalog__header .filter .filter-label img {
+  width: 16px;
+  transition: transform 0.3s ease;
+}
+main .container .catalog__header .filter .filter-label:hover {
+  color: #F16D7F;
+}
+main .container .catalog__header .filter .filter-dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 15px;
+  min-width: 200px;
+  list-style: none;
+  margin: 0;
+}
+main .container .catalog__header .filter .filter-dropdown label {
+  margin-bottom: 20px;
+}
+main .container .catalog__header .filter .filter-dropdown label span {
+  color: #F16D7F;
+  font-size: 14px;
+  font-weight: 600;
+}
+main .container .catalog__header .filter .filter-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+main .container .catalog__header .filter .filter-dropdown .category-text {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-left: 5px solid #F16D7F;
+  border-bottom: 1px solid #EBEBEB;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #EF5B70;
+  margin: 10px 0 5px 0;
+  transition: all 0.5s ease;
+}
+main .container .catalog__header .filter .filter-dropdown .category-text:hover {
+  padding-left: 30px;
+  border-left: 5px solid #8f8e8e;
+}
+main .container .catalog__header .filter .filter-toggle:checked + .filter-label + .filter-dropdown {
+  display: block;
+}
+main .container .catalog__header .filter .category-list {
+  display: none;
+  padding-left: 20px;
+  list-style: none;
+  margin: 5px 0 10px;
+}
+main .container .catalog__header .filter .category-list li a {
+  text-decoration: none;
+  color: #6F6E6E;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+main .container .catalog__header .filter .category-list li a:hover {
+  color: #EF5B70;
+  padding-left: 5px;
+}
+main .container .catalog__header .filter .category-toggle:checked + .category-label + .category-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  gap: 20px;
+  margin: 20px 0;
+}
+main .container .catalog__header .filter .category-toggle {
+  display: none;
+}
+main .container .catalog__header .options {
+  display: flex;
+  color: #6F6E6E;
+  gap: 20px;
+  cursor: pointer;
+}
+main .container .catalog__header .options .trending, main .container .catalog__header .options .size, main .container .catalog__header .options .price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+main .container .catalog__header .options .trending h3, main .container .catalog__header .options .size h3, main .container .catalog__header .options .price h3 {
+  margin: 0;
+  font-size: 14px;
+}
+main .container .catalog__header .options .trending img, main .container .catalog__header .options .size img, main .container .catalog__header .options .price img {
+  width: 10px;
+  transition: transform 0.3s ease;
+}
+main .container .catalog__header .options .trending:hover h3, main .container .catalog__header .options .size:hover h3, main .container .catalog__header .options .price:hover h3 {
+  color: #EF5B70;
+}
+main .container .catalog__header .options .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 10px;
+  border-radius: 4px;
+  width: 80px;
+}
+main .container .catalog__header .options .dropdown label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #5D5D5D;
+  cursor: pointer;
+  padding: 6px 0;
+}
+main .container .catalog__header .options .dropdown label input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #B8B8B8;
+  border-radius: 2px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+}
+main .container .catalog__header .options .dropdown label input[type=checkbox]:checked {
+  background-color: #EF5B70;
+  border-color: #EF5B70;
+}
+main .container .catalog__header .options .dropdown label input[type=checkbox]:checked::after {
+  content: "✓";
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+}
+main .container .catalog__header .options .dropdown label:hover {
+  color: #EF5B70;
+}
+main .container .catalog__header .options .trending:hover .dropdown,
+main .container .catalog__header .options .size:hover .dropdown {
+  display: flex;
+  flex-direction: column;
+}
+main .container .catalog__header .unvisible {
+  width: 100px;
 }
 main .container .catalog__list {
   display: flex;
@@ -315,20 +434,32 @@ main .container .catalog__list__item .item__info h2 {
   font-weight: 400;
   color: #F16D7F;
 }
-main .container .catalog button {
-  width: 212px;
-  height: 48px;
+main .container .catalog .pages {
+  width: 284px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 44px;
   background: none;
-  border: 1px #FF6A6A solid;
-  color: #F26376;
+  border: 1px #EBEBEB solid;
   font-size: 16px;
-  font-weight: 400;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-main .container .catalog button:hover {
-  background-color: #FF6A6A;
-  color: #FFF;
+main .container .catalog .pages a {
+  text-decoration: none;
+  color: #C4C4C4;
+  display: flex;
+  align-items: center;
+}
+main .container .catalog .pages a:nth-of-type(2) {
+  color: #EF5B70;
+}
+main .container .catalog .pages a:nth-of-type(2):hover {
+  color: #222224;
+}
+main .container .catalog .pages a:hover {
+  color: #EF5B70;
 }
 
 footer {
@@ -488,41 +619,6 @@ footer .lower__footer .container .right__part .btn:hover img {
     flex-direction: column;
     gap: 12px;
   }
-  header {
-    height: 600px;
-  }
-  header .container img {
-    height: 600px;
-  }
-  header .container .the__brand {
-    border-left: 10px solid #F16D7F;
-    padding-left: 14px;
-    right: 0;
-  }
-  header .container .the__brand h2 {
-    font-size: 42px;
-  }
-  header .container .the__brand h4 {
-    font-size: 28px;
-  }
-  main .container .sales .poster {
-    gap: 10px;
-  }
-  main .container .sales .upper__part .for-women {
-    width: 260px;
-    height: 180px;
-  }
-  main .container .sales .upper__part .for-men {
-    width: 260px;
-    height: 180px;
-  }
-  main .container .sales .upper__part .for-kids {
-    width: 260px;
-    height: 180px;
-  }
-  main .container .sales .lower__part {
-    height: 140px;
-  }
   main .container .catalog__list__item {
     width: 250px;
     height: 440px;
@@ -548,32 +644,6 @@ footer .lower__footer .container .right__part .btn:hover img {
     display: flex;
     flex-direction: column;
     gap: 5px;
-  }
-  header {
-    height: 450px;
-  }
-  header .container img {
-    height: 450px;
-  }
-  header .container .the__brand {
-    border-left: 6px solid #F16D7F;
-    padding-left: 14px;
-    right: 0;
-  }
-  main .container .sales .upper__part .for-women {
-    width: 200px;
-    height: 150px;
-  }
-  main .container .sales .upper__part .for-men {
-    width: 200px;
-    height: 150px;
-  }
-  main .container .sales .upper__part .for-kids {
-    width: 200px;
-    height: 150px;
-  }
-  main .container .sales .lower__part {
-    height: 140px;
   }
   main .container .catalog__list__item {
     min-width: 180px;
@@ -606,37 +676,12 @@ footer .lower__footer .container .right__part .btn:hover img {
     flex-direction: column;
     gap: 5px;
   }
-  header {
-    height: 367px;
+  main .container .catalog__header .unvisible {
+    display: none;
   }
-  header .container img {
-    height: 367px;
-  }
-  header .container .the__brand {
-    border-left: 6px solid #F16D7F;
-    padding-left: 14px;
-    right: 0;
-  }
-  header .container .the__brand h2 {
-    font-size: 44px;
-  }
-  header .container .the__brand h4 {
-    font-size: 24px;
-  }
-  main .container .sales .upper__part .for-women {
-    width: 180px;
-    height: 120px;
-  }
-  main .container .sales .upper__part .for-men {
-    width: 180px;
-    height: 120px;
-  }
-  main .container .sales .upper__part .for-kids {
-    width: 180px;
-    height: 120px;
-  }
-  main .container .sales .lower__part {
-    height: 100px;
+  main .container .catalog__header .filter-dropdown span {
+    font-size: 16px;
+    font-weight: 700;
   }
   main .container .catalog__list__item {
     max-width: 360px;
@@ -698,58 +743,17 @@ footer .lower__footer .container .right__part .btn:hover img {
   .menu ul ul li {
     margin: 5px 0;
   }
-  header {
-    height: 363px;
-  }
   header .container {
-    height: 363px;
+    height: 148px;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-  }
-  header .container img {
-    display: none;
-  }
-  header .container .the__brand {
-    border-left: 8px solid #F16D7F;
-    padding-left: 10px;
-  }
-  header .container .the__brand h2 {
-    font-size: 32px;
-    line-height: 1.2;
-  }
-  header .container .the__brand h4 {
-    font-size: 18px;
-  }
-  main .container .sales {
-    align-items: center;
     gap: 20px;
   }
-  main .container .sales .upper__part {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
+  main .container .catalog__header .filter .filter-img {
+    width: 37px;
   }
-  main .container .sales .upper__part .for-women {
-    width: 100%;
-    min-width: unset;
-    height: 250px;
-  }
-  main .container .sales .upper__part .for-men {
-    width: 100%;
-    min-width: unset;
-    height: 250px;
-  }
-  main .container .sales .upper__part .for-kids {
-    width: 100%;
-    min-width: unset;
-    height: 250px;
-  }
-  main .container .sales .lower__part {
-    width: 100%;
-    min-width: unset;
-    height: 111px;
+  main .container .catalog__header .options span {
+    font-size: 12px;
   }
   main .container .catalog__list {
     flex-direction: column;
@@ -810,11 +814,11 @@ footer .lower__footer .container .right__part .btn:hover img {
   .menu ul ul li {
     margin: 2px 0;
   }
-  header .the__brand h2 {
-    font-size: 24px !important;
+  main .container .catalog__header .filter h3 {
+    display: none;
   }
-  header .the__brand h4 {
-    font-size: 14px !important;
+  main .container .catalog__header .filter .filter-img {
+    width: 28px;
   }
   main .container .catalog__list {
     flex-direction: column;
@@ -844,4 +848,4 @@ footer .lower__footer .container .right__part .btn:hover img {
   footer .subscribe .container .right__part .email__button button {
     width: 90px;
   }
-}/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=catalog.css.map */

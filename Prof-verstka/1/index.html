@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
     <div class="navbar">
         <div class="container">
             <div class="left__part">
@@ -17,14 +19,47 @@
                 <a href="#"><img src="./IMG/search-icon.svg" alt="Search"></a>
             </div>
             <div class="right__part">
-                <a href="#"><img src="./IMG/menu-icon.svg" alt="Menu"></a>
+                <label for="menu-toggle" class="menu-button">
+                    <img src="./IMG/menu-icon.svg" alt="Menu">
+                </label>
                 <div class="for__full">
                     <a href="#"><img src="./IMG/profile-icon.svg" alt="Profile"></a>
                     <a href="#"><img src="./IMG/cart-icon.svg" alt="Cart"></a>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
+    <nav class="menu">
+        <label class="close" for="menu-toggle">
+            <img src="./IMG/exit-icon.svg" alt="Close">
+        </label>
+        <h2>MENU</h2>
+        <ul>
+            <li><a href="#">MAN</a></li>
+            <ul>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Bags</a></li>
+                <li><a href="#">Denim</a></li>
+                <li><a href="#">T-Shirts</a></li>
+            </ul>
+            <li><a href="#">WOMAN</a></li>
+            <ul>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Jackets & Coats</a></li>
+                <li><a href="#">Polos</a></li>
+                <li><a href="#">T-Shirts</a></li>
+                <li><a href="#">Shirts</a></li>
+            </ul>
+            <li><a href="#">KIDS</a></li>
+            <ul>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Jackets & Coats</a></li>
+                <li><a href="#">Polos</a></li>
+                <li><a href="#">T-Shirts</a></li>
+                <li><a href="#">Bags</a></li>
+            </ul>
+        </ul>
+    </nav>
     <header>
         <div class="container">
             <img src="./IMG/header-man.png" alt="Man">

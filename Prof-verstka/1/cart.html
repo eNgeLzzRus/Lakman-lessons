@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <div class="navbar">
+        <div class="container">
+            <div class="left__part">
+                <a href="./index.html"><img src="./IMG/logo.svg" alt="Logo"></a>
+                <a href="./product.html"><img src="./IMG/search-icon.svg" alt="Search"></a>
+            </div>
+            <div class="right__part">
+                <label for="menu-toggle" class="menu-button">
+                    <img src="./IMG/menu-icon.svg" alt="Menu">
+                </label>
+                <div class="for__full">
+                    <a href="#"><img src="./IMG/profile-icon.svg" alt="Profile"></a>
+                    <a href="./cart.html"><img src="./IMG/cart-icon.svg" alt="Cart"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="menu">
+        <label class="close" for="menu-toggle">
+            <img src="./IMG/exit-icon.svg" alt="Close">
+        </label>
+        <h2>MENU</h2>
+        <ul>
+            <li>
+                <a href="./catalog.html">MAN</a>
+                <ul>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Bags</a></li>
+                    <li><a href="#">Denim</a></li>
+                    <li><a href="#">T-Shirts</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">WOMAN</a>
+                <ul>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Jackets & Coats</a></li>
+                    <li><a href="#">Polos</a></li>
+                    <li><a href="#">T-Shirts</a></li>
+                    <li><a href="#">Shirts</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">KIDS</a>
+                <ul>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Jackets & Coats</a></li>
+                    <li><a href="#">Polos</a></li>
+                    <li><a href="#">T-Shirts</a></li>
+                    <li><a href="#">Bags</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <div class="container">
+                <h1>SHOPPING CART</h1>
+            </div>
+        </header>
+        <div class="content">
+            <div class="container">
+                <div class="left__part">
+                    <div class="products">
+                        <div class="item">
+                            <img src="./IMG/catalog-pic-3.jpg" alt="Cart Item">
+                            <div class="item__info">
+                                <h3>MANGO  PEOPLE  T-SHIRT</h3>
+                                <div class="options">
+                                    <h4>Price: <span class="price">$300</span></h4>
+                                    <h4>Color: Red</h4>
+                                    <h4>Seze: XL</h4>
+                                    <h4>Quantity: <span class="quantity">2</span></h4>
+                                </div>
+                            </div>
+                            <img src="./IMG/exit-icon.svg" alt="Close" class="item__close">
+                        </div>
+                        <div class="item">
+                            <img src="./IMG/catalog-man-2.jpg" alt="Cart Item">
+                            <div class="item__info">
+                                <h3>MANGO  PEOPLE  T-SHIRT</h3>
+                                <div class="options">
+                                    <h4>Price: <span class="price">$300</span></h4>
+                                    <h4>Color: Red</h4>
+                                    <h4>Seze: XL</h4>
+                                    <h4>Quantity: <span class="quantity">2</span></h4>
+                                </div>
+                            </div>
+                            <img src="./IMG/exit-icon.svg" alt="Close" class="item__close">
+                        </div>
+
+                    </div>
+                    <div class="buttons">
+                        <button class="clear">CLEAR SHOPPING CART</button>
+                        <button>CONTINUE SHOPPING</button>
+                    </div>
+                </div>
+                <div class="right__part">
+                    <form>
+                        <h4>SHIPPING ADDRESS</h4>
+                        <input type="text" placeholder="Bangladesh">
+                        <input type="text" placeholder="State">
+                        <input type="text" placeholder="Postcode / Zip">
+                        <button type="submit">GET A QUOTE</button>
+                    </form>
+                    <div class="total">
+                        <div class="prices">
+                            <h5>SUB TOTAL <span class="sub-total">$900</span></h5>
+                            <h3>GRAND TOTAL <span class="grand-total">$900</span></h3>
+                        </div>
+                        <hr>
+                        <button>PROCEED TO CHECKOUT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="subscribe">
+            <div class="container">
+                <div class="left__part">
+                    <img src="./IMG/face.png" alt="Face">
+                    <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum“</p>
+                </div>
+                <div class="right__part">
+                    <div class="text">
+                        <h2>SUBSCRIBE</h2>
+                        <h3>FOR OUR NEWLETTER AND PROMOTION</h3>
+                    </div>
+                    <form class="email__button">
+                        <input type="email" placeholder="Enter Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="lower__footer">
+            <div class="container">
+                <p>© 2021  Brand  All Rights Reserved.</p>
+                <div class="right__part">
+                    <a href="#" class="btn"><img src="./IMG/fb.svg" alt="Facebook"></a>
+                    <a href="#" class="btn"><img src="./IMG/insta.svg" alt="Instagram"></a>
+                    <a href="#" class="btn"><img src="./IMG/pint.svg" alt="Pinterest"></a>
+                    <a href="#" class="btn"><img src="./IMG/twit.svg" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" href="./cart.css">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./registration.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-
     <div class="navbar">
         <div class="container">
             <div class="left__part">
@@ -66,66 +64,46 @@
             </li>
         </ul>
     </nav>
+    <header>
+        <div class="container">
+            <h1>SHOPPING CART</h1>
+        </div>
+    </header>
     <main>
-        <header>
-            <div class="container">
-                <h1>SHOPPING CART</h1>
-            </div>
-        </header>
-        <div class="content">
-            <div class="container">
-                <div class="left__part">
-                    <div class="products">
-                        <div class="item">
-                            <img src="./IMG/catalog-pic-3.jpg" alt="Cart Item">
-                            <div class="item__info">
-                                <h3>MANGO  PEOPLE  T-SHIRT</h3>
-                                <div class="options">
-                                    <h4>Price: <span class="price">$300</span></h4>
-                                    <h4>Color: Red</h4>
-                                    <h4>Seze: XL</h4>
-                                    <h4>Quantity: <span class="quantity">2</span></h4>
-                                </div>
-                            </div>
-                            <img src="./IMG/exit-icon.svg" alt="Close" class="item__close">
-                        </div>
-                        <div class="item">
-                            <img src="./IMG/catalog-man-2.jpg" alt="Cart Item">
-                            <div class="item__info">
-                                <h3>MANGO  PEOPLE  T-SHIRT</h3>
-                                <div class="options">
-                                    <h4>Price: <span class="price">$300</span></h4>
-                                    <h4>Color: Red</h4>
-                                    <h4>Seze: XL</h4>
-                                    <h4>Quantity: <span class="quantity">2</span></h4>
-                                </div>
-                            </div>
-                            <img src="./IMG/exit-icon.svg" alt="Close" class="item__close">
-                        </div>
-
-                    </div>
-                    <div class="buttons">
-                        <button class="clear">CLEAR SHOPPING CART</button>
-                        <button>CONTINUE SHOPPING</button>
-                    </div>
+        <div class="container">
+            <form>
+                <h2>Your Name</h2>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <div class="male__female">
+                    <label for="Male"><input type="radio" name="gender" id="Male" required>Male</label>
+                    <label for="Female"><input type="radio" name="gender" id="Female">Female</label>
+                    <label for="Other"><input type="radio" name="gender" id="Other">Other</label>
                 </div>
-                <div class="right__part">
-                    <form>
-                        <h4>SHIPPING ADDRESS</h4>
-                        <input type="text" placeholder="Bangladesh">
-                        <input type="text" placeholder="State">
-                        <input type="text" placeholder="Postcode / Zip">
-                        <button type="submit">GET A QUOTE</button>
-                    </form>
-                    <div class="total">
-                        <div class="prices">
-                            <h5>SUB TOTAL <span class="sub-total">$900</span></h5>
-                            <h3>GRAND TOTAL <span class="grand-total">$900</span></h3>
-                        </div>
-                        <hr>
-                        <button>PROCEED TO CHECKOUT</button>
-                    </div>
-                </div>
+                <h2>Login details</h2>
+                <input type="email" placeholder="Email" required>
+                <input 
+                    type="password" 
+                    placeholder="Password" 
+                    required
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Please use 8 or more characters, with at least 1 number and a mixture of uppercase and lowercase letters">
+                <p>Please use 8 or more characters, with at least 1 number and a mixture of uppercase and lowercase letters</p>
+                <button type="submit">
+                    <span>JOIN NOW</span>
+                    <img src="./IMG/join-icon.svg" alt="Join Now">
+                </button>
+            </form>
+            <div class="loyalty">
+                <h1>LOYALTY HAS ITS PERKS</h1>
+                <h2>Get in on the loyalty program where you can earn points and unlock serious perks. Starting with these as soon as you join:</h2>
+                <ul>
+                    <li>15% off welcome offer</li>
+                    <li>Free shipping, returns and exchanges on all orders</li>
+                    <li>$10 off a purchase on your birthday</li>
+                    <li>Early access to products</li>
+                    <li>Exclusive offers & rewards</li>
+                </ul>
             </div>
         </div>
     </main>

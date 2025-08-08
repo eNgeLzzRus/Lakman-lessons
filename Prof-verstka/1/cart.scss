@@ -817,6 +817,12 @@ footer {
     }
 
     main {
+        header {
+            .container {
+                justify-content: center;
+            }
+        }
+
         .content {
             .container {
 

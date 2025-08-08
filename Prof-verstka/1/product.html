@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="./product.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <div class="navbar">
+        <div class="container">
+            <div class="left__part">
+                <a href="./index.html"><img src="./IMG/logo.svg" alt="Logo"></a>
+                <a href="#"><img src="./IMG/search-icon.svg" alt="Search"></a>
+            </div>
+            <div class="right__part">
+                <label for="menu-toggle" class="menu-button">
+                    <img src="./IMG/menu-icon.svg" alt="Menu">
+                </label>
+                <div class="for__full">
+                    <a href="#"><img src="./IMG/profile-icon.svg" alt="Profile"></a>
+                    <a href="#"><img src="./IMG/cart-icon.svg" alt="Cart"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="menu">
+        <label class="close" for="menu-toggle">
+            <img src="./IMG/exit-icon.svg" alt="Close">
+        </label>
+        <h2>MENU</h2>
+        <ul>
+            <li>
+                <a href="./catalog.html">MAN</a>
+                <ul>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Bags</a></li>
+                    <li><a href="#">Denim</a></li>
+                    <li><a href="#">T-Shirts</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">WOMAN</a>
+                <ul>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Jackets & Coats</a></li>
+                    <li><a href="#">Polos</a></li>
+                    <li><a href="#">T-Shirts</a></li>
+                    <li><a href="#">Shirts</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">KIDS</a>
+                <ul>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Jackets & Coats</a></li>
+                    <li><a href="#">Polos</a></li>
+                    <li><a href="#">T-Shirts</a></li>
+                    <li><a href="#">Bags</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <div class="container">
+            <h2>NEW ARRIVALS</h2>
+            <p>
+                <a href="./index.html">HOME</a> / 
+                <a href="./catalog.html">MEN</a> / 
+                <a href="./catalog.html">NEW ARRIVALS</a>
+            </p>
+        </div>
+    </header>
+    <main>
+        <div class="header">
+            <div class="go-back">
+                <img src="./IMG/go-back-icon.svg" alt="Go Back">
+            </div>
+            <div class="content">
+                <img src="./IMG/product-woman.png" alt="Woman">
+            </div>
+            <div class="go-forward">
+                <img src="./IMG/go-forward-icon.svg" alt="Go Forward">
+            </div>
+        </div>
+        <div class="product__info">
+            <div class="container">
+                <div class="collection__name">
+                    <h4>WOMEN COLLECTION</h4>
+                    <hr>
+                    <h3>MOSCHINO CHEAP AND CHIC</h3>
+                </div>
+                <p>Compellingly actualize fully researched processes before proactive outsourcing. Progressively syndicate collaborative architectures before cutting-edge services. Completely visualize parallel core competencies rather than exceptional portals. </p>
+                <h2>$561</h2>
+                <hr>
+                <div class="options">
+                    <div class="choose-color">
+                        <input type="checkbox" id="color">
+                        <label class="color" for="color">
+                            <span>CHOOSE COLOR</span>
+                            <img src="./IMG/more-down.svg" alt="Colors">
+                        </label>
+                    </div>
+                    <div class="choose-size">
+                        <input type="checkbox" id="size">
+                        <label class="size" for="size">
+                            <span>CHOOSE SIZE</span>
+                            <img src="./IMG/more-down.svg" alt="Sizes">
+                        </label>
+                    </div>
+                    <div class="choose-quantity">
+                        <input type="checkbox" id="quantity">
+                        <label class="quantity" for="quantity">
+                            <span>QUANTITY</span>
+                            <img src="./IMG/more-down.svg" alt="Sizes">
+                        </label>
+                    </div>
+                </div>
+                <button>
+                    <img src="./IMG/pink-cart.svg" alt="Add to Cart">
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+        </div>
+        <div class="catalog">
+            <div class="container">
+                <div class="catalog__list">
+                    <!-- 1 -->
+                    <div class="catalog__list__item">
+                        <div class="image-wrapper">
+                            <img src="./IMG/catalog-pic-1.jpg" alt="ELLERY X M'O CAPSULE">
+                            <div class="add-to-cart">
+                                <img src="./IMG/add-cart.svg" alt="Add To Cart">
+                                <p>Add To Cart</p>
+                            </div>
+                        </div>
+                        <div class="item__info">
+                            <h3>ELLERY X M'O CAPSULE</h3>
+                            <p>Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
+                            <h2>$52.00</h2>
+                        </div>
+                    </div>
+                    <!-- 2 -->
+                     <div class="catalog__list__item">
+                        <div class="image-wrapper">
+                            <img src="./IMG/catalog-man-2.jpg" alt="ELLERY X M'O CAPSULE">
+                            <div class="add-to-cart">
+                                <img src="./IMG/add-cart.svg" alt="Add To Cart">
+                                <p>Add To Cart</p>
+                            </div>
+                        </div>
+                        <div class="item__info">
+                            <h3>ELLERY X M'O CAPSULE</h3>
+                            <p>Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
+                            <h2>$52.00</h2>
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="catalog__list__item">
+                        <div class="image-wrapper">
+                            <video src="./IMG/4K 2K 1080p 720p 480p video resolution test.mp4" controls></video>
+                            <div class="add-to-cart">
+                                <img src="./IMG/add-cart.svg" alt="Add To Cart">
+                                <p>Add To Cart</p>
+                            </div>
+                        </div>
+                        <div class="item__info">
+                            <h3>ELLERY X M'O CAPSULE</h3>
+                            <p>Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
+                            <h2>$52.00</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="subscribe">
+            <div class="container">
+                <div class="left__part">
+                    <img src="./IMG/face.png" alt="Face">
+                    <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum“</p>
+                </div>
+                <div class="right__part">
+                    <div class="text">
+                        <h2>SUBSCRIBE</h2>
+                        <h3>FOR OUR NEWLETTER AND PROMOTION</h3>
+                    </div>
+                    <form class="email__button">
+                        <input type="email" placeholder="Enter Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="lower__footer">
+            <div class="container">
+                <p>© 2021  Brand  All Rights Reserved.</p>
+                <div class="right__part">
+                    <a href="#" class="btn"><img src="./IMG/fb.svg" alt="Facebook"></a>
+                    <a href="#" class="btn"><img src="./IMG/insta.svg" alt="Instagram"></a>
+                    <a href="#" class="btn"><img src="./IMG/pint.svg" alt="Pinterest"></a>
+                    <a href="#" class="btn"><img src="./IMG/twit.svg" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

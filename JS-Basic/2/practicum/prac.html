@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практикум</title>
+</head>
+<body>
+    <script>
+        function playGame() {
+            var randomNumber = Math.floor(Math.random() * 1000) + 1;
+            var chancesQuantity = 0;
+
+            function NumberGuess() {
+                chancesQuantity++;
+                let yourNumber = +prompt(`Угадайте загаданное число от 0 до 1000 (Попытка ${chancesQuantity})`);
+                
+                if (yourNumber != randomNumber) {
+                    if (yourNumber > randomNumber) {
+                        alert("Загаданное число меньше вашего!");
+                    } else {
+                        alert("Загаданное число больше вашего!");
+                    }
+                    NumberGuess(); 
+                } else {
+                    alert(`Вы угадали! Число = ${yourNumber}. Попыток: ${chancesQuantity}`);
+                    if (confirm("Сыграем ещё?")) {
+                        playGame(); 
+                    }
+                }
+            }
+
+            NumberGuess();
+        }
+
+        playGame();
+    </script>
+</body>
+</html>

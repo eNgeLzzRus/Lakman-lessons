@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шахматная доска</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main-div {
+            width: 800px;
+        }
+        .row {
+            display: flex;
+            width: 100%;
+        }
+        .block {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .black {
+            background-color: #000;
+        }
+        .white {
+            background-color: beige;
+        }
+        .number {
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            font-size: 16px;
+            color: inherit;
+        }
+        .letter {
+            position: absolute;
+            right: 10px;
+            bottom: 5px;
+            font-size: 16px;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-div"></div>
+    
+    <script>
+        function createChessTable() {
+            const maindiv = document.querySelector('.main-div');
+            const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+
+            for (let i = 8; i >= 1; i--) {
+                const row = document.createElement('div');
+                row.classList.add('row');
+                maindiv.appendChild(row);
+
+                for (let j = 0; j < 8; j++) {
+                    const block = document.createElement('div');
+                    block.classList.add('block');
+                    
+                    const isBlack = (i + j) % 2 === 0;
+                    block.classList.add(isBlack ? 'black' : 'white');
+                    
+                    if (j === 0) {
+                        const number = document.createElement('span');
+                        number.classList.add('number');
+                        number.textContent = i;
+                        number.style.color = isBlack ? 'beige' : '#000';
+                        block.appendChild(number);
+                    }
+                    
+                    if (i === 1) {
+                        const letter = document.createElement('span');
+                        letter.classList.add('letter');
+                        letter.textContent = letters[j];
+                        letter.style.color = ((1 + j) % 2 === 0) ? 'beige' : '#000';
+                        block.appendChild(letter);
+                    }
+
+                    row.appendChild(block);
+                }
+            }
+        }
+
+        createChessTable();
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: Roboto;
+    font-weight: 500;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 30px;
+    position: fixed;
+    border-bottom: 2px orangered solid;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(252, 230, 221);
+
+    button {
+        width: 100px;
+        height: 40px;
+        background: white;
+        border: 2px solid orangered;
+        cursor: pointer;
+        font-size: 16px;
+        color: black;
+        transition: all 0.3s ease;
+        border-radius: 14px;
+
+        &:hover {
+            background-color: orangered;
+            color: white;
+        }
+    }
+}
+
+main {
+    height: auto;
+    padding: 100px 0;
+    margin: 0 auto; 
+}
+
+.goods-list, .cart {
+    padding: 0 100px 50px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.goods-item, .cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+    height: 300px;
+    border: 2px grey solid;
+    border-radius: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0 20px;
+            
+    &:hover {
+        background-color: rgb(243, 243, 243);
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 28px;
+    }
+
+    p {
+        margin: 0;
+        font-size: 24px;
+        color: rgb(228, 46, 46);
+
+        &::after {
+             content: ' ₽';
+        }
+    }
+
+    
+}
+
+.cart-selection {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+    
+    .remove {
+        width: auto;
+        height: 30px;
+        border: 1px solid orangered;
+        background: orangered;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: white;
+            color: #000
+            
+        }
+    }
+
+    .cart-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100px;
+        cursor: default;
+
+        span {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        .less, .more {
+            display: flex;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            border: 1px solid orangered;
+            background: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 300;
+
+            &:hover {
+                background-color: orangered;
+                color: white;
+            }
+        }
+    }
+
+    
+}
+
+.add {
+    margin-left: auto;
+    width: auto;
+    height: 30px;
+    border: 1px solid orangered;
+    background: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: orangered;
+        color: white;
+    }
+}
+
+.clear-cart {
+    width: 150px;
+    height: 50px;
+    align-self: center;
+    background-color: rgb(241, 47, 33);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: rgb(241, 47, 33);
+        border: 1px solid rgb(241, 47, 33);
+        background-color: white;
+    }
+}
+
+.empty-cart {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 200px auto;
+}
+
+.cart-price, .total-price {
+    padding-left: 50px;
+    font-size: 24px;
+    font-weight: 300;
+
+    span {
+        font-size: 28px;
+        color: orangered;
+
+        &::after {
+            content: ' ₽';
+            font-size: 24px;
+        }
+    }
+
+    
+}
+
+
+.non-vision {
+    display: none;
+}

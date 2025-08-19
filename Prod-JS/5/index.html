@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eShop</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <input type="text" class="goods-search" placeholder="Search" v-model="searchLine">
+            <button class="cart-button" @click="cartToggle">Корзина</button>
+        </header>
+        <main>
+            <div class="goods" v-if="!isVisibleCart" >
+                <div class="goods-list" v-if="goods.length > 0">
+                    <div class="goods-item" v-for="good of filteredGoods">
+                        <h3>{{ good.product_name }}</h3>
+                        <p>{{ good.price }}</p>
+                        <div class="cart-selection" v-if="isInCart(good)">
+                            <div class="cart-info">
+                                <button class="less" @click="less(good)">-</button>
+                                <span>{{ getQuantity(good) }}</span>
+                                <button class="more" @click="addToCart(good)">+</button>
+                            </div>
+                            <button class="remove" @click="remove(good)">Удалить из корзины</button>
+                        </div>
+                        <div class="cart-selection" v-else>
+                            <button class="add" @click="addToCart(good)">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="error" v-else>Нет данных</h1>
+                <div class="total-price" v-if="goods.length > 0">
+                    <p>Общая стоимость в корзине: <span>{{ totalPrice }}</span></p>
+                </div>
+                
+            </div>
+            
+            <div class="cart" v-else>
+                <div class="cart-list" v-if="cart.length > 0">
+                    <div class="cart-item" v-for="good of cart">
+                        <h3>{{ good.product_name }}</h3>
+                        <p>{{ good.price }}</p>
+                        <div class="cart-selection">
+                            <div class="cart-info">
+                                <button class="less" @click="less(good)">-</button>
+                                <span>{{ good.quantity }}</span>
+                                <button class="more" @click="addToCart(good)">+</button>
+                            </div>
+                            <button class="remove" @click="remove(good)">Удалить из корзины</button>
+                        </div>
+                    </div>
+                </div>
+                <h1 v-else class="error">Корзина пуста</h1>
+                <div class="price__clear" v-if="cart.length > 0">
+                    <div class="cart-price" >
+                        <p>Итого: <span>{{ totalPrice }}</span></p>
+                    </div>
+                    <button class="clear-cart" @click="clearCart()">Очистить корзину</button>
+                </div>
+                
+                
+            </div>
+        </main>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eShop</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <nav-bar
+            :search-line="searchLine"
+            @update:search-line="searchLine = $event"
+            @toggle-cart="cartToggle"
+        ></nav-bar>
+        
+        <main v-if="connectionStatus">
+            <goods-list
+                v-if="!isVisibleCart"
+                :filtered-goods="filteredGoods"
+                :cart="cart"
+                :total-price="totalPrice"
+                @add="addToCart"
+                @more="more"
+                @less="less"
+                @remove="remove"
+            ></goods-list>
+            <cart-list
+                v-else
+                :cart="cart"
+                :total-price="totalPrice"
+                @add="addToCart"
+                @more="more"
+                @less="less"
+                @remove="remove"
+                @clear-cart="clearCart"
+            ></cart-list>
+        </main>
+
+        <connection-error
+            v-if="!connectionStatus"
+        />
+    </div>
+    
+    <script src="./main.js"></script>
+</body>
+</html>

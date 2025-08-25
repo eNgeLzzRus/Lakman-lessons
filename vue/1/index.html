@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Roboto;
+        }
+
+        form {
+            width: 500px;
+            display: grid;
+            margin: 20px auto;
+            gap: 20px;
+
+            label {
+                font-weight: 500;
+            }
+
+            input {
+                width: 100%;
+                margin-top: 10px;
+                box-sizing: border-box;
+                padding: 10px 20px;
+                border: 1px rgb(180, 180, 180) solid;
+                border-radius: 5px;
+                outline: none;
+
+                &:focus {
+                    border: 1px rgb(136, 136, 136) solid;
+                }
+            }
+
+            .addGuest {
+                width: 30px;
+                height: 30px;
+                margin-left: 5px;
+                background-color: rgb(36, 132, 241);
+                border: 1px rgb(136, 136, 136) solid;
+                border-radius: 3px;
+                cursor: pointer;
+                color: white;
+
+                &:hover {
+                    background-color: rgb(33, 124, 230);
+                }
+            }
+
+            hr {
+                height: 2px;
+                border: none;
+                background-color: rgba(180, 180, 180, 0.3);
+            }
+
+            .confirm {
+                width: 120px;
+                height: 30px;
+                border: none;
+                color: white;
+                background-color: rgb(13, 160, 79);
+                border-radius: 3px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(11, 145, 71);
+                }
+            }
+        }
+
+        .table {
+            width: 500px;
+            margin: 20px auto;
+
+            table {
+                margin-top: 20px;
+                border-collapse: collapse;
+                width: 100%;
+                font-size: 14px;
+            }
+
+            td {
+                border: 1px solid #ccc;
+                padding: 8px 12px;
+            }
+
+            td:nth-child(1) {
+                width: 30%;
+            }
+
+            tr:hover {
+                background-color: #eef;
+            }   
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <form v-if="isFormPage">
+            <label for="email">Email <br>
+                <input type="email" class="email" v-model="person.email">
+            </label>
+            <label for="firstName">First Name <br>
+                <input class="firstName" v-model="person.firstName">
+            </label>
+            <label for="lastName">Last Name <br>
+                <input class="lastName" v-model="person.lastName">
+            </label>
+            <label for="phone">Phone <br>
+                <input class="phone" v-model="person.phone">
+            </label>
+            <label for="addGuest">Guests
+                <button class="addGuest" @click.prevent="addGuest">+</button>
+            </label>
+            <label for="guest" v-for="(name, index) in person.guests" @dblclick="removeGuest(index)">
+                Guest {{ index + 1 }}
+                <input class="guest" v-model="person.guests[index].name" @dblclick.stop>
+            </label>
+            <hr>
+            <button @click.prevent="isFormPage = !isFormPage" class="confirm">Send Data</button>
+        </form>
+        <div class="table" v-else>
+            <h1>All Done!</h1>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>{{ person.firstName }} {{ person.lastName }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ person.email }}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>{{ person.phone }}</td>
+                </tr>
+                <tr>
+                    <td>Guests</td>
+                    <td>
+                        <table v-if="person.guests.length" class="guests">
+                            <tr v-for="guest in person.guests" :key="guest.name">
+                                <td>{{ guest.name }}</td>
+                            </tr>
+                        </table>
+                        <span v-else>No guests</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                isFormPage: true,
+                person: { 
+                    firstName: '', 
+                    lastName: '', 
+                    email: '', 
+                    phone: '', 
+                    guests: [] 
+                }
+            },
+            methods: {
+                addGuest() {
+                    this.person.guests.push({ name: '' });
+                },
+                removeGuest(e) {
+                    this.person.guests.splice(e, 1);
+                }
+            },
+            computed: {
+
+            },
+        })
+    </script>
+</body>
+</html>

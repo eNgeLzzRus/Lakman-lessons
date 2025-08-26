@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <form v-if="isFormPage">
+            <my-input
+                v-for="(elem, index) in person"
+                :key="index"
+                :name="elem.name"
+                :index="index"
+                v-model="elem.value"
+            ></my-input>
+            <label for="addGuest">Guests
+                <button class="addGuest" @click.prevent="addGuest">+</button>
+            </label>
+            <my-input
+                v-for="(name, index) in guests"
+                @dblclick.native="removeGuest(index)"
+                :name="'Guest ' + (index + 1)"
+                :index="index"
+                v-model="guests[index].name"
+            ></my-input>
+            
+            <hr>
+            <button @click.prevent="isFormPage = !isFormPage" class="confirm">Send Data</button>
+        </form>
+        <div class="table" v-else>
+            <h1>All Done!</h1>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>{{ person[0].value }} {{ person[1].value }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ person[2].value }}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>{{ person[3].value }}</td>
+                </tr>
+                <tr>
+                    <td>Guests</td>
+                    <td>
+                        <table v-if="guests.length" class="guests">
+                            <tr v-for="guest in guests" :key="guest.name">
+                                <td>{{ guest.name }}</td>
+                            </tr>
+                        </table>
+                        <span v-else>No guests</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        Vue.component('my-input', {
+            template: `
+                <div>
+                    <label :for="genId">{{ name }} <br>
+                        <input 
+                            type="text" 
+                            :id="genId"
+                            :value="value"
+                            @input="updateValue"
+                            @dblclick.stop
+                        >
+                    </label>
+                </div>
+            `,
+            props: {
+                name: String,
+                index:  Number,
+                value: [String, Array],
+            },
+            methods: {
+                updateValue(e) {
+                    this.$emit('input', e.target.value);
+                },
+            },
+            computed: {
+                genId() {
+                    return 'input' + this.index;
+                }
+            }
+        })
+
+        new Vue({
+            el:'#app',
+            data: {
+                isFormPage: true,
+                person: [ 
+                    {
+                        name: 'First Name',
+                        value: '',
+                    },
+                    {
+                        name: 'Last Name',
+                        value: '',
+                    },
+                    {
+                        name: 'Email',
+                        value: '',
+                        
+                    },
+                    {
+                        name: 'Phone',
+                        value: '',
+                    },
+                ],
+                guests: [],
+            },
+            methods: {
+                addGuest() {
+                    this.guests.push({ name: '' });
+                },
+                removeGuest(e) {
+                    this.guests.splice(e, 1);
+                }
+            },
+            computed: {
+            },
+        })
+    </script>
+</body>
+</html>

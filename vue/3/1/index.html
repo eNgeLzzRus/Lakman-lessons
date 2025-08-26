@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <div v-timer:1000.5="onTimer">1</div>
+        <div v-timer:1000.5.run="onTimer">2</div>
+        <div v-timer:1000="onTimer">3</div>
+    </div>
+    
+
+    <script>
+        Vue.directive('timer', {
+            bind(el, options) {
+                let timer;
+                let quantity = 0;
+                let timeout = parseInt(options.arg);
+                let count = 0;
+
+                startTimer = () => {
+                    if (timer !== undefined) {
+                        clearInterval(timer);
+                    }
+
+                    timer = setInterval(() => {
+                        options.value(el);
+                        count++;
+
+                        if (quantity > 0 && count >= quantity) {
+                            clearInterval(timer);
+                        }
+                    }, timeout)
+                }          
+                
+                
+                for (let name in options.modifiers) {
+                    if (!isNaN(+name)) {
+                        quantity = parseInt(name);
+                    }
+                }
+                
+                if (options.modifiers.run) {
+                    startTimer();
+                } else {
+                    setTimeout(startTimer, timeout);
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                
+            },
+            computed: {
+                
+            },
+            methods: {
+                onTimer(el) {
+                    let size = parseInt(el.style.fontSize) || 16;
+                    el.style.fontSize = (size + 5) + "px";
+                }
+            }
+        })
+    </script> 
+</body>
+</html>

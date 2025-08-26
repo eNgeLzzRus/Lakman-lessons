@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+}
+
+form {
+    width: 500px;
+    display: grid;
+    margin: 20px auto;
+    gap: 20px;
+
+    label {
+        font-weight: 500;
+    }
+
+    input {
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        border: 1px rgb(180, 180, 180) solid;
+        border-radius: 5px;
+        outline: none;
+
+        &:focus {
+            border: 1px rgb(136, 136, 136) solid;
+        }
+    }
+
+    .addGuest {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        background-color: rgb(36, 132, 241);
+        border: 1px rgb(136, 136, 136) solid;
+        border-radius: 3px;
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+            background-color: rgb(33, 124, 230);
+        }
+    }
+
+    hr {
+        height: 2px;
+        border: none;
+        background-color: rgba(180, 180, 180, 0.3);
+    }
+
+    .confirm {
+        width: 120px;
+        height: 30px;
+        border: none;
+        color: white;
+        background-color: rgb(13, 160, 79);
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(11, 145, 71);
+        }
+    }
+}
+
+.table {
+    width: 500px;
+    margin: 20px auto;
+
+    table {
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    td {
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+    }
+
+    td:nth-child(1) {
+        width: 30%;
+    }
+
+    tr:hover {
+        background-color: #eef;
+    }   
+}

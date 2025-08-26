@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="form" v-if="isActiveForm">
+            <form>
+                <div class="textTable" @scroll="checkScroll">
+                    <p 
+                        v-for="item in 30"
+                        :key="item" 
+                    >
+                        {{ text }}
+                    </p>
+                </div>
+                <div class="textAgree" v-if="isScrolled">
+                    <label for="forAgree">
+                        <input 
+                            type="checkbox" 
+                            id="forAgree"
+                            v-model="isTextAgree"
+                        >
+                        I agree this text
+                    </label> 
+                    <br>
+                    <label for="forSpam">
+                        <input 
+                            type="checkbox" 
+                            id="forSpam" 
+                            v-model="isSendSpam"
+                        >
+                        Send me spam
+                    </label>
+                    <div class="chooseSpam" v-if="isSendSpam">
+                        <label for="forEmail">
+                            <input 
+                                type="radio" 
+                                id="forEmail" 
+                                v-model="spamType" 
+                                name="spam"
+                                value="Email"
+                            >
+                            Send me spam on email
+                        </label>
+                        <br>
+                        <label for="forPhone">
+                            <input 
+                                type="radio" 
+                                id="forPhone" 
+                                v-model="spamType" 
+                                name="spam"
+                                value="Phone"
+                            >
+                            Send me spam on phone
+                        </label>
+                    </div>
+                </div>
+                <button 
+                    v-if="isScrolled && (isTextAgree || (isSendSpam && spamType != null))"
+                    @click="isActiveForm = !isActiveForm"
+                    type="button"
+                >
+                    Send Data
+                </button>
+            </form>
+        </div>
+        <div class="table" v-else>
+            <table>
+                <tr>
+                    <td>Agree Text</td>
+                    <td>{{ humanizeBool(isTextAgree) }}</td>
+                </tr>
+                <tr>
+                    <td>Get Spam</td>
+                    <td>{{ humanizeBool(isSendSpam) }}</td>
+                </tr>
+                <tr v-if="isSendSpam">
+                    <td>Spam On</td>
+                    <td>{{ spamType }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isTextAgree: false,
+                isSendSpam: false,
+                spamType: null,
+                text: 'This text no one reads. This text no one reads. This text no one reads.',
+                isScrolled: false,
+                isActiveForm: true,
+            },
+            computed: {
+                
+            },
+            methods: {
+                checkScroll(e) {
+                    const el = e.target;
+                    if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
+                        this.isScrolled = true;
+                    }
+                },
+                humanizeBool(val) {
+                    if (val === true) {
+                        return "Yes";
+                    }
+                    return "No";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

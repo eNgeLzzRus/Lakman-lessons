@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="form" v-if="isFormActive">
+            <div class="progress">
+                <div 
+                    class="progress-fill" 
+                    :style="{ width: progressPercent + '%' }"
+                ></div>
+            </div>
+            <form>
+                <div class="input" v-for="(item, index) in info">
+                    <label for="name">{{ item.name }}</label>
+                    <template v-if="item.value" class="validationVisual">
+                        <span v-if="item.pattern.test(item.value)" class="isValid">✓</span>
+                        <span v-else class="isNotValid">✗</span>
+                    </template>
+                    
+                    <br>
+                    <input 
+                        type="text" 
+                        class="name" 
+                        :pattern="item.pattern" 
+                        v-model="item.value"
+                    >
+                </div>
+                <button 
+                    type="button" 
+                    class="send" 
+                    :disabled="!activeButton"
+                    @click="isFormActive = !isFormActive"
+                >Send Data</button>
+            </form>
+        </div>
+        <div class="table" v-else>
+            <table>
+                <tr v-for="(item, index) in info">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.value }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                info: [
+                    {
+                        name: 'Name',
+                        value: '',
+                        pattern: /^[a-zA-Z]{2,30}$/
+                    },
+                    {
+                        name: 'Phone',
+                        value: '',
+                        pattern: /^[0-9]{7,14}$/
+                    },
+                    {
+                        name: 'Email',
+                        value: '',
+                        pattern: /.+/
+                    },
+                    {
+                        name: 'Some Field 1',
+                        value: '',
+                        pattern: /.+/
+                    },
+                    {
+                        name: 'Some Field 2',
+                        value: '',
+                        pattern: /.+/
+                    },
+                ],
+                isFormActive: true,
+            },
+            computed: {
+                quantityValid() {
+                    return this.info.filter(item => item.pattern.test(item.value)).length
+                },
+                progressPercent() {
+                    return (this.quantityValid / this.info.length) * 100;
+                },
+                activeButton() {
+                    return this.quantityValid === this.info.length;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
